@@ -40,5 +40,7 @@
         <item>com.vng.pubgmobile</item>
         <item>jp.konami.pesam</item>
         <item>com.proximabeta.mf.uamo</item>
+        <item>com.ytheekshama.deviceinfo</item>
+        <item>com.activision.callofduty.warzone</item>
     </string-array>
 </resources>

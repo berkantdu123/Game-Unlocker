@@ -34,7 +34,10 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
         "com.ea.gp.fifamobile",
         "com.gameloft.android.ANMP.GloftA9HM"
     };
-
+    private static final String[] PACKAGE_S24U = {
+        "com.activision.callofudty.warzone",
+        "com.ytheekshana.deviceinfo"
+    };
     // Packages to Spoof as iQOO Neo 7
     private static final String[] PACKAGE_NEO7 = {
         "com.pubg.imobile"
@@ -163,6 +166,11 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
             DM3Q();
             XposedBridge.log("Spoofed " + packageName + " as Samsung Galaxy S23 Ultra");
         }
+        
+        if (Arrays.asList(PACKAGE_S24U).contains(packageName)) {
+            S24U();
+            XposedBridge.log("Spoofed " + packageName + " as Samsung Galaxy S24 Ultra");
+        }
 
         // Xiaomi
         if (Arrays.asList(PACKAGE_M11TP).contains(packageName)) {
@@ -272,7 +280,12 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
         setPropValue("MANUFACTURER", "Xiaomi");
         setPropValue("MODEL", "M2102K1G");
     }
-
+    // Props to Spoof as Samsung Galaxy S24 Ultra
+    private static void S24U() {
+        setPropValue("BRAND", "Samsung");
+        setPropValue("MANUFACTURER", "Samsung");
+        setPropValue("Model", "SM-S928B");
+    }
     private static void setPropValue(String key, Object value) {
         try {
             Log.d(TAG, "Defining prop " + key + " to " + value.toString());
